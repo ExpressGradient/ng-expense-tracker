@@ -1,0 +1,31 @@
+<header>
+  <h1>Ng-Tracker</h1>
+  <p>Expense Tracker in Angular</p>
+  <nav>
+    <a routerLink="/activities">Activities</a>
+    <a routerLink="/groups">Groups</a>
+  </nav>
+</header>
+
+<h1>Activities</h1>
+<div class="main-container">
+  <form (submit)="activitySubmit()">
+    <h2>Activity Entry</h2>
+    <label>
+      Activity Title:
+      <input type="text" required maxlength="100" [(ngModel)]="title" name="title">
+    </label>
+    <label>
+      Description:
+      <input type="text" required maxlength="100" [(ngModel)]="description" name="description">
+    </label>
+    <input type="submit" value="CREATE LOG" class="submit-button">
+  </form>
+
+  <div class="activities">
+    <div *ngFor="let activity of activities" class="activity">
+      <h2><a [routerLink]="['/activities', activity['title']]">{{ activity['title'] }}</a></h2>
+      <p>{{ activity['description'] }}</p>
+    </div>
+  </div>
+</div>

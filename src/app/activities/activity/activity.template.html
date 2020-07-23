@@ -1,0 +1,42 @@
+<header>
+  <h1>Ng-Tracker</h1>
+  <p>Expense Tracker in Angular</p>
+  <nav>
+    <a routerLink="/activities">Activities</a>
+    <a routerLink="/groups">Groups</a>
+  </nav>
+</header>
+
+<h1>{{ activity['title'] }}</h1>
+<div class="main-container">
+  <form (submit)="logSubmit()">
+    <h2>Log Entry</h2>
+    <label>
+      From:
+      <input type="text" required maxlength="100" name="from" [(ngModel)]="from">
+    </label>
+    <label>
+      To:
+      <input type="text" required maxlength="100" name="to" [(ngModel)]="to">
+    </label>
+    <label>
+      Amount:
+      <input type="number" required maxLength="10" name="amount" [(ngModel)]="amount">
+    </label>
+    <label>
+      Date:
+      <input type="date" required name="date" [(ngModel)]="date">
+    </label>
+    <label>
+      Reason:
+      <input type="text" required maxlength="200" name="reason" [(ngModel)]="reason">
+    </label>
+    <input type="submit" value="CREATE LOG" class="submit-button">
+  </form>
+
+  <div class="logs">
+    <div *ngFor="let log of activity['logs']" class="log">
+      <h3>{{ log['from'] }} owes {{ log['to'] }} {{ log['amount'] }} on {{ log['date'] }} for {{ log['reason'] }}</h3>
+    </div>
+  </div>
+</div>

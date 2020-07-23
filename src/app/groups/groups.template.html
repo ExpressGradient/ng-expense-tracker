@@ -1,0 +1,32 @@
+<header>
+  <h1>Ng-Tracker</h1>
+  <p>Expense Tracker in Angular</p>
+  <nav>
+    <a routerLink="/activities">Activities</a>
+    <a routerLink="/groups">Groups</a>
+  </nav>
+</header>
+
+<h1>Groups</h1>
+
+<div class="main-container">
+  <form (submit)="groupSubmit()">
+    <h2>Friends Group Entry</h2>
+    <label>
+      Group Title:
+      <input type="text" required maxlength="100" name="title" [(ngModel)]="title">
+    </label>
+    <label>
+      Friends:
+      <input type="text" required maxlength="500" placeholder="comma separated values" name="friends" [(ngModel)]="friends">
+    </label>
+    <input type="submit" value="CREATE LOG" class="submit-button">
+  </form>
+
+  <div class="groups">
+    <div *ngFor="let group of groups" class="group">
+      <h2><a [routerLink]="['/groups', group['title']]">{{ group['title'] }}</a></h2>
+      <p>{{ group['friends'] }}</p>
+    </div>
+  </div>
+</div>

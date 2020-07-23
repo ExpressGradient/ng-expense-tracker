@@ -1,0 +1,12 @@
+[
+  {
+    "title": "College Group",
+    "friends": ["user", "user"],
+    "logs": []
+  },
+  {
+    "title": "Family Group",
+    "friends": ["user", "user"],
+    "logs": []
+  }
+]
